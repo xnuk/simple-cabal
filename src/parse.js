@@ -35,7 +35,7 @@ async function mc(basedir, o, v){
 
 	const other = v === 'lib' ? others : (() => {
 		const a = new Set(modules)
-		a.delete(z.main || (v === 'exe' ? 'Main' : 'Spec'))
+		a.delete('Main')
 		return a
 	})()
 
