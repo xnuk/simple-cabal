@@ -1,0 +1,23 @@
+{
+  "name": "simple-cabal",
+  "version": "0.1.0",
+  "main": "dest/index.js",
+  "license": "BSD-3-Clause",
+  "bin": {
+    "simple-cabal": "./bin/simple-cabal"
+  },
+  "scripts": {
+    "build": "babel src/ --out-dir dest/"
+  },
+  "dependencies": {
+    "js-yaml": "^3.7.0",
+    "mustache": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-flow-strip-types": "^6.18.0",
+    "babel-plugin-transform-function-bind": "^6.8.0"
+  }
+}

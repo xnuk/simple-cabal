@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const datafile = process.argv[2]
+const render = require('..').render
+const templatefile = process.argv[3] || path.join(__dirname, '..', 'cabal.mustache')
+
+if(datafile == null) process.exit(1)
+
+const p = render(templatefile, datafile, path.resolve('.'))
+p.catch(e => {console.error(e); process.exit(1)})
+p.then(v => console.log(v))
