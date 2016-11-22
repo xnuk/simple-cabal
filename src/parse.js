@@ -4,7 +4,7 @@ import {resolve} from 'path'
 function addDepend(o){
 	if(o.depend){
 		const z = o.depend
-		Object.keys(z).forEach(v => {this.delete(z); this.add(v + ' ' + z[v])})
+		Object.keys(z).forEach(v => {this.delete(v); this.add(v + ' ' + z[v])})
 	}
 	return this
 }
@@ -40,9 +40,9 @@ async function mc(basedir, o, v){
 	})()
 
 	return {
-		'depend': Array.from(deps).join(', '),
-		'expose': Array.from(modules).join(', '),
-		'other': Array.from(other).join(', '),
+		'depend': Array.from(deps).sort().join(', '),
+		'expose': Array.from(modules).sort().join(', '),
+		'other': Array.from(other).sort().join(', '),
 		'src': z.src,
 		'main': z.main + '.hs',
 		'name': z.name,
