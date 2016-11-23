@@ -10,7 +10,7 @@ function addDepend(o){
 }
 
 export async function parse(basedir, o){
-	const nil = (e => null)
+	const nil = (e => (console.error(e), null))
 	const lib  = await mc(basedir, o, 'lib' ).catch(nil)
 	const exe  = await mc(basedir, o, 'exe' ).catch(nil)
 	const test = await mc(basedir, o, 'test').catch(nil)
@@ -26,7 +26,7 @@ export async function parse(basedir, o){
 
 async function mc(basedir, o, v){
 	const z = o[v]
-	if(z == null) throw 'wat'
+	if(z == null) return null
 
 	const expose = z.expose || ['*']
 
