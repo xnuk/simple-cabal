@@ -47,7 +47,7 @@ export function getAll(src: string, names: Array<string> = ['*']): Promise<{modu
 		const xsarr = Array.from(xs)
 		const modules: Set<string> = new Set([].concat(...names::fm(v => {
 			if(v.indexOf('*') === -1) return xs.has(v) ? v : null
-			const regex = new RegExp('^' + v.replace(/\./g, '\\.').replace(/\*/, '[^\.]+') + '$')
+			const regex = new RegExp('^' + v.replace(/\./g, '\\.').replace(/\*/g, '[^\.]+') + '$')
 			return xsarr.filter(v => regex.test(v))
 		})))
 		const others: Set<string> = (() => {
