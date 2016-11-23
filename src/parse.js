@@ -31,7 +31,7 @@ async function mc(basedir, o, v){
 	const expose = z.expose || ['*']
 
 	const {modules, others, deps} = await getAll(resolve(basedir, z.src), expose)
-	deps::addDepend(o.all)::addDepend(z)
+	deps::addDepend(o.all || (o.all = {}))::addDepend(z)
 
 	const other = v === 'lib' ? others : (() => {
 		const a = new Set(modules)
